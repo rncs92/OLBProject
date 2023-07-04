@@ -30,4 +30,14 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    'exchange' => [
+        'key' => env('EXCHANGE_API_KEY'),
+        'url' => env('EXCHANGE_API_URL'),
+    ],
+
+    'crypto' => [
+        'key' => env('CRYPTO_API_KEY'),
+        'url' => env('CRYPTO_API_URL'),
+        'singleCoin' => env('SINGLE_COIN_URL'),
+    ]
 ];

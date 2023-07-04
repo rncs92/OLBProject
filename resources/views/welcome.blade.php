@@ -63,9 +63,6 @@
             justify-content: center
         }
 
-        .text-sm {
-            font-size: .875rem
-        }
 
         .mx-auto {
             margin-left: auto;
@@ -113,14 +110,14 @@
 
             <div class="mt-8 flex flex-wrap justify-center gap-4">
                 <a
-                    class="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white hover hover:bg-gradient-to-r from-blue-500 to-purple-600 transition active:text-opacity-75 sm:w-auto"
+                    class="block w-full rounded border border-blue-600 bg-blue-600 px-12 py-3 text-l font-medium text-white hover hover:bg-gradient-to-r from-blue-500 to-purple-600 transition active:text-opacity-75 sm:w-auto"
                     href="/login"
                 >
                     Get started
                 </a>
 
                 <a
-                    class="block w-full rounded border border-blue-600 px-12 py-3 text-sm font-medium text-white hover hover:bg-gradient-to-r from-blue-500 to-purple-600 transition sm:w-auto"
+                    class="block w-full rounded border border-blue-600 px-12 py-3 text-l font-medium text-white hover hover:bg-gradient-to-r from-blue-500 to-purple-600 transition sm:w-auto"
                     href="/register"
                 >
                     Create account

@@ -41,6 +41,11 @@ class User extends Authenticatable
         return $this->hasOne(Portfolio::class);
     }
 
+    public function investingTransactions(): HasMany
+    {
+        return $this->hasMany(InvestingTransaction::class);
+    }
+
     protected $hidden = [
         'password',
         'remember_token',

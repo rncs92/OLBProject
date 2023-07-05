@@ -9,10 +9,15 @@ use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\TransferController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', [TransactionController::class, 'showInvesting'])->name('accounts')->middleware('web');
+
+
+/*
 //Welcome
 Route::get('/', function () {
     return view('welcome');
 });
+*/
 //Account
 Route::get('/accounts', [AccountController::class, 'show'])->name('accounts')->middleware('web');
 Route::post('/accounts', [AccountController::class, 'create'])->name('accounts')->middleware('web');
@@ -24,7 +29,7 @@ Route::post('/accounts/deposit', [DepositController::class, 'deposit'])->name('d
 Route::get('/accounts/transfer', [TransferController::class, 'show'])->name('transfer')->middleware('web');
 Route::post('/accounts/transfer', [TransferController::class, 'transfer'])->name('transfer')->middleware('web');
 //Transactions
-Route::get('/transactions', [TransactionController::class, 'index'])->name('transactions')->middleware('web');
+Route::get('/transactions', [TransactionController::class, 'show'])->name('transactions')->middleware('web');
 //Payments
 Route::get('/payments', [PaymentController::class, 'index'])->name('payment')->middleware('web');
 Route::post('/payments', [PaymentController::class, 'make'])->name('payment')->middleware('web');

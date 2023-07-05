@@ -16,6 +16,11 @@ class Coin extends Model
         return $this->belongsTo(Portfolio::class);
     }
 
+    public function investingTransaction(): BelongsTo
+    {
+        return $this->belongsTo(InvestingTransaction::class);
+    }
+
     private $name;
     private $symbol;
     private $price;

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Account;
 use App\Models\Coin;
 use App\Models\Portfolio;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
@@ -14,6 +15,7 @@ class CoinController extends Controller
     public function index(): View
     {
         $userId = (int)Auth::user()->getAuthIdentifier();
+        $user = User::find(Auth::user()->getAuthIdentifier());
         $accounts = Account::all()->where('user_id', $userId)->where('type', 'Investing');
         $portfolios = Portfolio::all()->where('user_id', $userId);
         $totalSum = number_format(array_sum(DB::table('portfolios')
@@ -21,19 +23,31 @@ class CoinController extends Controller
             ->pluck('bought_for')
             ->all()), 2);
 
+        $boughtFor = [];
         $realTimeValues = [];
-
         foreach ($portfolios as $portfolio) {
+            $boughtFor[] = $portfolio->bought_for;
             $realTimeValues[] = number_format(Coin::fetchBySymbol($portfolio->coin)->getPrice() * $portfolio->amount, 2);
         }
+
+        $difference = [];
+        for($i = 0; $i < count($boughtFor); $i++) {
+            $difference[] = number_format(($realTimeValues[$i] - $boughtFor[$i]) / $boughtFor[$i] * 100, 2);
+        }
+
         $totalSumRealTime = number_format(array_sum($realTimeValues), 2);
+
+
+        $investingTransactions = $user->investingTransactions;
 
         return view('investing', compact(
             'accounts',
             'portfolios',
             'totalSum',
             'realTimeValues',
-            'totalSumRealTime'
+            'totalSumRealTime',
+            'difference',
+            'investingTransactions'
         ));
     }
 

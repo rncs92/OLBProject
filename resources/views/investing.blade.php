@@ -181,11 +181,86 @@
                                         Invest
                                     </a>
                                 </div>
+                                <div class="container p-2 mx-auto sm:p-4 dark:text-gray-100">
+                                    <h2 class="mb-4 pt-8 text-2xl font-semibold">Investing Transactions</h2>
+                                    <div class="overflow-x-auto">
+                                        <table class="min-w-full text-xs">
+                                            <colgroup>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col>
+                                                <col class="w-24">
+                                            </colgroup>
+                                            <thead class="dark:bg-gray-700">
+                                            <tr class="text-left">
+                                                <th class="p-3">Transaction ID</th>
+                                                <th class="p-3">Account ID</th>
+                                                <th class="p-3">Date</th>
+                                                <th class="p-3">Coin Symbol</th>
+                                                <th class="p-3 text-right">Coin Name</th>
+                                                <th class="p-3">Coin Amount</th>
+                                                <th class="p-3">Bought For</th>
+                                                <th class="p-3">Sold For</th>
+                                                <th class="p-3">Currency</th>
+                                                <th class="p-3">Net Gains</th>
+                                                <th class="p-3">Type</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            @foreach($investingTransactions as $investingTransaction)
+                                                <tr class="border-b border-opacity-20">
+                                                    <td class="p-3">
+                                                        <p>{{ $investingTransaction->transaction_id }}</p>
+                                                    </td>
+                                                    <td class="p-3">
+                                                        <p>{{ $investingTransaction->account_number }}</p>
+                                                    </td>
+                                                    <td class="p-3">
+                                                        <p>{{ $investingTransaction->created_at }}</p>
+                                                    </td>
+                                                    <td class="p-3">
+                                                        <p>{{ $investingTransaction->coin_symbol }}</p>
+                                                    </td>
+                                                    <td class="p-3 text-right">
+                                                        <p>{{ $investingTransaction->coin_name }}</p>
+                                                    </td>
+                                                    <td class="p-3 text-right">
+                                                        <p>{{ $investingTransaction->coin_amount }}</p>
+                                                    </td>
+                                                    <td class="p-3 text-right">
+                                                        <p>{{ $investingTransaction->bought_for }}</p>
+                                                    </td>
+                                                    <td class="p-3 text-right">
+                                                        <p>{{ $investingTransaction->sold_for }}</p>
+                                                    </td>
+                                                    <td class="p-3 text-right">
+                                                        <p>{{ $investingTransaction->currency}}</p>
+                                                    </td>
+                                                    <td class="p-3 text-right">
+                                                        <p>{{ $investingTransaction->net_gains }}</p>
+                                                    </td>
+                                                    <td class="p-3 text-right">
+                                                        <p>{{ $investingTransaction->message}}</p>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="w-1/2 rounded shadow-lg">
                             <div class="h-full p-6 bg-gray-100 flex flex-col justify-start">
-                                <h2 class="flex justify-center text-4xl font-semibold px-12 text-gray-600 mb-2">Your
+                                <h2 class="flex justify-center text-4xl font-semibold px-12 text-gray-600 mb-2">
+                                    Your
                                     portfolio</h2>
                                 <link rel="preconnect" href="https://fonts.gstatic.com">
                                 <link
@@ -220,7 +295,8 @@
                                         @foreach($portfolios as $portfolio)
                                             <div class="pt-8 flex flex-col items-start">
                                                 <div class="flex items-center">
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                                         height="16"
                                                          viewBox="0 0 16 16" fill="none" stroke="#ffffff"
                                                          stroke-width="1.5" stroke-linecap="round"
                                                          stroke-linejoin="round">
@@ -246,7 +322,13 @@
                                                     @endif
                                                 </div>
                                                 <div class="pl-6">
-                                                    <b>Difference:</b>
+                                                    @if($difference[$loop->index] < 0)
+                                                        <b>Difference:</b> {{ $difference[$loop->index] }}%
+                                                        <i class="fas fa-arrow-down text-red-500 mr-4"></i>
+                                                    @else
+                                                        <b>Difference:</b> {{ $difference[$loop->index] }}%
+                                                        <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                                                    @endif
                                                 </div>
                                             </div>
                                         @endforeach

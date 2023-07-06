@@ -30,6 +30,10 @@ class TransferController extends Controller
 
     public function transfer(Request $request): RedirectResponse
     {
+        $validated = $request->validate([
+            'amount' => 'required|min:1|max:255|numeric',
+        ]);
+
         $user = Auth::user();
 
         $fromAccount = $user->account()->findOrFail($request->input(['transfer_from']));

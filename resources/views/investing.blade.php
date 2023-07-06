@@ -170,13 +170,13 @@
                                 <div class="flex justify-end px-10">
                                     <a
                                         class="py-3 px-8 mr-2 rounded border border-blue-600 bg-blue-600 text-l font-medium text-white hover hover:bg-gradient-to-r from-blue-500 to-purple-600 transition active:text-opacity-75 sm:w-auto"
-                                        href="/withdraw"
+                                        href="/investing/sell"
                                     >
-                                        Withdraw
+                                        Sell
                                     </a>
                                     <a
                                         class="py-3 px-8 rounded border border-blue-600 bg-blue-600 text-l font-medium text-white hover hover:bg-gradient-to-r from-blue-500 to-purple-600 transition active:text-opacity-75 sm:w-auto"
-                                        href="/investing/crypto"
+                                        href="/investing/buy"
                                     >
                                         Invest
                                     </a>

@@ -197,8 +197,7 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                            <div class="text-xs mt-2 text-gray-500 italic text-center">You'll be charged
-                                                $253, including $48 for VAT in Italy
+                                            <div class="text-xs mt-2 text-gray-500 italic text-center">Make sure the details are entered correctly!
                                             </div>
                                         </div>
                                     </div>

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <title>Crypto Investing</title>
+    <title>Sell Crypto</title>
 </head>
 <body>
 <x-app-layout>
@@ -87,8 +87,8 @@
             </div>
         </div>
         <div class="flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800 ml-64">
-            <h1 class="flex justify-center mt-2 mb-2 text-5xl font-bold">Crypto Exchange</h1>
-            <form method="POST" action="/investing/buy/">
+            <h1 class="flex justify-center mt-2 mb-2 text-5xl font-bold">Sell Assets</h1>
+            <form method="POST" action="/investing/sell/">
                 @csrf
                 <input type="hidden" name="coin_symbol" value="{{ $coin->getSymbol() }}">
                 <section class="py-6 dark:bg-gray-800 dark:text-gray-50">
@@ -153,7 +153,7 @@
                         </div>
 
                         <div class="flex flex-col py-6 space-y-6 md:py-0 md:px-6">
-                            <label for="investing_account">Select investing account:</label>
+                            <label for="investing_account">Select Investing Account:</label>
                             <select id="investing_account" name="investing_account"
                                     class="h-10 border mb-8 mt-1 rounded px-4 w-full bg-gray-50"
                                     data-te-select-init>
@@ -164,17 +164,24 @@
                                     @endif
                                 @endforeach
                             </select>
-                            <label class="amount">
+                            <label for="portfolio">Coin To Sell:</label>
+                            <select id="portfolio" name="portfolio"
+                                    class="h-10 border mb-8 mt-1 rounded px-4 w-full bg-gray-50"
+                                    data-te-select-init>
+                                        <option
+                                            value="{{ $portfolio->id }}"> {{ "Coin: $portfolio->coin_name" }} {{"($portfolio->coin)"}} {{"Amount: $portfolio->amount"}} {{"Value: $realTimeValue"}} {{ $portfolio->currency }}</option>
+                            </select>
+                            <label class="amount" for="amount">
                                 <span class="mb-1">Amount:</span>
-                                <input type="text" name="amount" placeholder="Amount"
-                                       class="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800">
                             </label>
+                                <input type="text" id="amount" name="amount" placeholder="Amount"
+                                       class="block w-full rounded-md shadow-sm focus:ring focus:ri focus:ri dark:bg-gray-800">
                             @error('amount')
                             <span class="text-red-500">{{ $message }}</span>
                             @enderror
                             <button type="submit"
                                     class="flex items-center mt-auto text-white bg-gray-800 font-medium  border-0 py-2 px-4 w-1/3 focus:outline-none focus:bg-gray-700 hover:bg-gray-700 rounded">
-                                Buy
+                                Sell
                                 <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
                                      stroke-width="2"
                                      class="w-4 h-4 ml-auto" viewBox="0 0 24 24">

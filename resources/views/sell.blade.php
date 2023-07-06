@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <title>Transfer</title>
+    <title>Your Portfolio</title>
 </head>
 <body>
 <x-app-layout>
@@ -86,71 +86,88 @@
                 </ul>
             </div>
         </div>
-        <div class="flex flex-col flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800 ml-64">
-            <!-- component -->
-            <form id="transfer_from" action="/accounts/transfer" method="POST">
-                @csrf
-                <div class="flex flex-row">
-                    <div class="w-1/2">
-                        <div class="min-h-screen p-6 bg-gray-100">
-                            <h2 class="font-semibold text-xl text-gray-600 mb-2">Select account to transfer FROM</h2>
-                            <div class="md:col-span-5">
-                                <label for="transfer_from">Accounts:</label>
-                                <select id="transfer_from" name="transfer_from"
-                                        class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
-                                        data-te-select-init>
-                                    @foreach($accounts as $account)
-                                        <option
-                                            value="{{ $account->id }}"> {{ "Account number: $account->account_number" }} {{"Currency: $account->currency"}} {{"Balance: $account->balance"}} {{"Type: $account->type"}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <h2 class="font-semibold text-xl text-gray-600 mb-2 mt-8">Select account to transfer TO</h2>
-                            <div class="md:col-span-5">
-                                <label for="transfer_to">Accounts:</label>
-                                <select id="transfer_to" name="transfer_to"
-                                        class="h-10 border mb-8 mt-1 rounded px-4 w-full bg-gray-50"
-                                        data-te-select-init>
-                                    @foreach($accounts as $account)
-                                            <option
-                                                value="{{ $account->id }}"> {{ "Account number: $account->account_number" }} {{"Currency: $account->currency"}} {{"Balance: $account->balance"}} {{"Type: $account->type"}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+        <div class="flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800 ml-64">
+            <h1 class="flex justify-center mt-2 mb-2 text-5xl font-bold">Your Portfolio</h1>
+            <link rel="stylesheet"
+                  href="https://demos.creative-tim.com/notus-js/assets/styles/tailwind.css">
+            <link rel="stylesheet"
+                  href="https://demos.creative-tim.com/notus-js/assets/vendor/@fortawesome/fontawesome-free/css/all.min.css">
+            <div class="grid grid-cols-3 gap-2">
+                @foreach($portfolios as $portfolio)
+                    <div class="bg-white p-4 shadow-md">
+                        <div
+                            class="h-full p-6 rounded-lg border-2 border-gray-300 flex flex-col relative overflow-hidden">
+                            <h2 class="text-sm tracking-widest title-font mb-1 font-medium">
+                                <strong>{{ $portfolio->coin_name }}</strong>({{ $portfolio->coin }}) </h2>
+                            <h1 class="text-5xl text-gray-900 pb-4 mb-4 border-b border-gray-200 leading-none"></h1>
+                            <p class="flex items-center text-gray-600 mb-2">
+                    <span
+                        class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+                        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                             stroke-width="2.5"
+                             class="w-3 h-3" viewBox="0 0 24 24">
+                            <path d="M20 6L9 17l-5-5"></path>
+                        </svg>
+                    </span><strong>You Own:</strong> {{ $portfolio->amount }} coins
+                            </p>
+                            <p class="flex items-center text-gray-600 mb-2">
+    <span
+        class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+             class="w-3 h-3" viewBox="0 0 24 24">
+            <path d="M20 6L9 17l-5-5"></path>
+        </svg>
+    </span>
+                                <strong>Real Time Value: </strong> {{ $realTimeValues[$loop->index] }}
+                            </p>
+                            <p class="flex items-center text-gray-600 mb-2">
+    <span
+        class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+             class="w-3 h-3" viewBox="0 0 24 24">
+            <path d="M20 6L9 17l-5-5"></path>
+        </svg>
+    </span>
+                                <strong>Bought For: </strong> {{ $portfolio->bought_for }} {{ $portfolio->currency }}
+                            </p>
+                            <p class="flex items-center text-gray-600 mb-2">
+    <span
+        class="w-4 h-4 mr-2 inline-flex items-center justify-center bg-gray-400 text-white rounded-full flex-shrink-0">
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+             class="w-3 h-3" viewBox="0 0 24 24">
+            <path d="M20 6L9 17l-5-5"></path>
+        </svg>
+    </span>
+                                @if($differences[$loop->index] < 0)
+                                    <b>Difference:</b> <span
+                                        class="text-red-600">
+                                    {{ $differences[$loop->index] . "%" }}
+                                    <i class="fas fa-arrow-down text-red-500 mr-4"></i>
+                                @else
+                                            <b>Difference:</b> <span
+                                                class="text-green-600">
+                                    {{ $differences[$loop->index] . "%" }}
+                                    <i class="fas fa-arrow-up text-emerald-500 mr-4"></i>
+                                @endif
 
-                    <div class="w-1/2 rounded shadow-lg">
-                        <div class="min-h-screen p-6 bg-gray-100">
-                            <h2 class="font-semibold text-xl text-gray-600 mb-2">Transfer</h2>
-                            <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6 mr-10">
-                                <div class="grid gap-4 gap-y-2 text-sm">
-                                    <div>
-                                        <p class="font-medium text-lg">Enter the amount you would like to transfer</p>
-                                    </div>
-                                    <div>
-                                        <label for="amount">Amount:</label>
-                                        <div>
-                                            <div class="relative mt-2 rounded-md shadow-sm">
-                                                <input type="text" name="amount" id="amount"
-                                                       class="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                                                       placeholder="0.00">
-                                                @error('amount')
-                                                <span class="text-red-500">{{ $message }}</span>
-                                                @enderror
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="submit"
-                                    class="py-2 px-4 capitalize tracking-wide bg-gray-800 text-white font-medium rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700">
-                                Transfer
-                            </button>
+                            </p>
+                            <a href="{{ route('showSingleSell', ['symbol' => $portfolio->coin]) }}">
+                                <button
+                                    class="flex items-center mt-auto text-white bg-gray-800 font-medium  border-0 py-2 px-4 w-1/3 focus:outline-none focus:bg-gray-700 hover:bg-gray-700 rounded">
+                                    Sell
+                                    <svg fill="none" stroke="currentColor" stroke-linecap="round"
+                                         stroke-linejoin="round"
+                                         stroke-width="2"
+                                         class="w-4 h-4 ml-auto" viewBox="0 0 24 24">
+                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                                    </svg>
+                                </button>
+                            </a>
+                            <p class="text-xs text-gray-500 mt-3">Think twice before selling and consider losses.</p>
                         </div>
                     </div>
-                </div>
-            </form>
+                @endforeach
+            </div>
         </div>
     </div>
 </x-app-layout>

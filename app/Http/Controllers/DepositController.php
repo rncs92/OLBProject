@@ -24,6 +24,10 @@ class DepositController extends Controller
 
     public function deposit(Request $request): RedirectResponse
     {
+        $validated = $request->validate([
+            'amount' => 'required|min:1|max:255|numeric',
+        ]);
+
         $user = Auth::user();
         $amount = $request->input('amount');
         $selectedAccount = $request->input('account');

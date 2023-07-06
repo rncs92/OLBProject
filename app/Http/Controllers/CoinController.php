@@ -66,4 +66,46 @@ class CoinController extends Controller
 
         return view('coin', compact('coin', 'accounts'));
     }
+
+    public function showSingleSell(string $symbol): View
+    {
+        $coin = Coin::fetchBySymbol($symbol);
+        $userId = (int)Auth::user()->getAuthIdentifier();
+        $user = User::find($userId);
+        $accounts = Account::all()->where('user_id', $userId)->where('type', 'Investing');
+        $portfolio = $user->portfolio
+            ->where('coin', $symbol)
+            ->where('user_id', $userId)
+            ->first();
+
+        $realTimeValue = number_format($coin->getPrice() * $portfolio->amount, 2);
+
+        return view('sell-coin', compact(
+            'coin',
+            'accounts',
+            'portfolio',
+            'realTimeValue'
+        ));
+    }
+
+    public function showBought(): View
+    {
+        $userId = Auth::user()->getAuthIdentifier();
+        $user = User::find($userId);
+        $portfolios = $user->portfolio->where('user_id', $userId)->get();
+
+        $boughtFor = [];
+        $realTimeValues = [];
+        foreach ($portfolios as $portfolio) {
+            $boughtFor[] = $portfolio->bought_for;
+            $realTimeValues[] = number_format(Coin::fetchBySymbol($portfolio->coin)->getPrice() * $portfolio->amount, 2);
+        }
+
+        $differences = [];
+        for($i = 0; $i < count($boughtFor); $i++) {
+            $differences[] = number_format(($realTimeValues[$i] - $boughtFor[$i]) / $boughtFor[$i] * 100, 2);
+        }
+
+        return view('sell', compact('portfolios', 'differences', 'realTimeValues'));
+    }
 }

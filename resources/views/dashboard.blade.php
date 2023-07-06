@@ -88,124 +88,164 @@
         </div>
         <!-- component -->
         <div class="flex flex-col flex-auto flex-shrink-0 antialiased bg-gray-50 text-gray-800 ml-64">
-        <div class="flex justify-center items-center">
-            <!--- more free and premium Tailwind CSS components at https://tailwinduikit.com/ --->
-            <div class="2xl:mx-auto 2xl:container lg:px-20 lg:py-16 md:py-12 md:px-6 py-9 px-4 w-96 sm:w-auto">
-                <div role="main" class="flex flex-col items-center justify-center">
-                    <h1 class="text-4xl font-semibold leading-9 text-center text-gray-800 dark:text-gray-50">This Week Blogs</h1>
-                    <p class="text-base leading-normal text-center text-gray-600 dark:text-white mt-4 lg:w-1/2 md:w-10/12 w-11/12">If you're looking for random paragraphs, you've come to the right place. When a random word or a random sentence isn't quite enough</p>
-                </div>
-                <div class="lg:flex items-stretch md:mt-12 mt-8">
-                    <div class="lg:w-1/2">
-                        <div class="sm:flex items-center justify-between xl:gap-x-8 gap-x-6">
-                            <div class="sm:w-1/2 relative">
-                                <div>
-                                    <p class="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">12 April 2021</p>
-                                    <div class="absolute bottom-0 left-0 p-6">
-                                        <h2 class="text-xl font-semibold 5 text-white">The Decorated Ways</h2>
-                                        <p class="text-base leading-4 text-white mt-2">Dive into minimalism</p>
-                                        <a href="javascript:void(0)" class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
-                                            <p class="pr-2 text-sm font-medium leading-none">Read More</p>
-                                            <svg class="fill-stroke" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </div>
-                                <img src="https://i.ibb.co/DYxtCJq/img-1.png" class="w-full" alt="chair" />
-                            </div>
-                            <div class="sm:w-1/2 sm:mt-0 mt-4 relative">
-                                <div>
-                                    <p class="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">12 April 2021</p>
-                                    <div class="absolute bottom-0 left-0 p-6">
-                                        <h2 class="text-xl font-semibold 5 text-white">The Decorated Ways</h2>
-                                        <p class="text-base leading-4 text-white mt-2">Dive into minimalism</p>
-                                        <a href="javascript:void(0)" class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
-                                            <p class="pr-2 text-sm font-medium leading-none">Read More</p>
-                                            <svg class="fill-stroke" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </div>
-                                <img src="https://i.ibb.co/3C5HvxC/img-2.png" class="w-full" alt="wall design" />
-                            </div>
-                        </div>
-                        <div class="relative">
-                            <div>
-                                <p class="md:p-10 p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">12 April 2021</p>
-                                <div class="absolute bottom-0 left-0 md:p-10 p-6">
-                                    <h2 class="text-xl font-semibold 5 text-white">The Decorated Ways</h2>
-                                    <p class="text-base leading-4 text-white mt-2">Dive into minimalism</p>
-                                    <a href="javascript:void(0)" class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
-                                        <p class="pr-2 text-sm font-medium leading-none">Read More</p>
-                                        <svg class="fill-stroke" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                            <img src="https://i.ibb.co/Ms4qyXp/img-3.png" alt="sitting place" class="w-full mt-8 md:mt-6 hidden sm:block" />
-                            <img class="w-full mt-4 sm:hidden" src="https://i.ibb.co/6XYbN7f/Rectangle-29.png" alt="sitting place" />
-                        </div>
+            <div class="flex justify-center items-center">
+                <div class="2xl:mx-auto 2xl:container lg:px-20 lg:py-16 md:py-12 md:px-6 py-9 px-4 w-96 sm:w-auto">
+                    <div role="main" class="flex flex-col items-center justify-center">
+                        <h1 class="text-4xl font-semibold leading-9 text-center text-gray-800 dark:text-gray-50">Welcome
+                            back, {{$user->name}}!</h1>
+                        <p class="text-base leading-normal text-center text-gray-600 dark:text-white mt-4 lg:w-1/2 md:w-10/12 w-11/12">
+                            Welcome to our online bank, where your financial needs meet digital convenience! We're
+                            thrilled to have you as part of our banking family. With our user-friendly platform and
+                            robust security measures, managing your finances has never been easier or more secure!</p>
                     </div>
-                    <div class="lg:w-1/2 xl:ml-8 lg:ml-4 lg:mt-0 md:mt-6 mt-4 lg:flex flex-col justify-between">
-                        <div class="relative">
-                            <div>
-                                <p class="md:p-10 p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">12 April 2021</p>
-                                <div class="absolute bottom-0 left-0 md:p-10 p-6">
-                                    <h2 class="text-xl font-semibold 5 text-white">The Decorated Ways</h2>
-                                    <p class="text-base leading-4 text-white mt-2">Dive into minimalism</p>
-                                    <a href="javascript:void(0)" class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
-                                        <p class="pr-2 text-sm font-medium leading-none">Read More</p>
-                                        <svg class="fill-stroke" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </a>
+                    <div class="lg:flex items-stretch md:mt-12 mt-8">
+                        <div class="lg:w-1/2">
+                            <div class="sm:flex items-center justify-between xl:gap-x-8 gap-x-6">
+                                <div class="sm:w-1/2 relative">
+                                    <div>
+                                        <p class="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">
+                                            Accounts</p>
+                                        <div class="absolute bottom-0 left-0 p-6">
+                                            <h2 class="text-xl font-semibold 5 text-white">Check Your Accounts</h2>
+                                            <p class="text-base leading-4 text-white mt-2">Manage your accounts</p>
+                                            <a href="/accounts"
+                                               class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
+                                                <p class="pr-2 text-sm font-medium leading-none">Accounts</p>
+                                                <svg class="fill-stroke" width="16" height="16" viewBox="0 0 16 16"
+                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor"
+                                                          stroke-width="2" stroke-linecap="round"
+                                                          stroke-linejoin="round"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <img src="{{asset('images/accounts2.jpg')}}" class="w-full h-80" alt="accounts"/>
+                                </div>
+                                <div class="sm:w-1/2 sm:mt-0 mt-4 relative">
+                                    <div>
+                                        <p class="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">
+                                            Transactions</p>
+                                        <div class="absolute bottom-0 left-0 p-6">
+                                            <h2 class="text-xl font-semibold 5 text-white">Transaction Overview</h2>
+                                            <p class="text-base leading-4 text-white mt-2">Follow the money</p>
+                                            <a href="/transactions"
+                                               class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
+                                                <p class="pr-2 text-sm font-medium leading-none">Transactions</p>
+                                                <svg class="fill-stroke" width="16" height="16" viewBox="0 0 16 16"
+                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor"
+                                                          stroke-width="2" stroke-linecap="round"
+                                                          stroke-linejoin="round"/>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <img src="{{asset('images/transactions.jpg')}}" class="w-full h-80"
+                                         alt="transactions"/>
                                 </div>
                             </div>
-                            <img src="https://i.ibb.co/6Wfjf2w/img-4.png" alt="sitting place" class="w-full sm:block hidden" />
-                            <img class="w-full sm:hidden" src="https://i.ibb.co/dpXStJk/Rectangle-29.png" alt="sitting place" />
+                            <div class="relative">
+                                <div>
+                                    <p class="md:p-10 p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">
+                                        Payments</p>
+                                    <div class="absolute bottom-0 left-0 md:p-10 p-6">
+                                        <h2 class="text-xl font-semibold 5 text-white">Make Payment</h2>
+                                        <p class="text-base leading-4 text-white mt-2">Let the money move</p>
+                                        <a href="/payments"
+                                           class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
+                                            <p class="pr-2 text-sm font-medium leading-none">Payments</p>
+                                            <svg class="fill-stroke" width="16" height="16" viewBox="0 0 16 16"
+                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor"
+                                                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </div>
+                                <img src="{{asset('images/payments.jpg')}}" alt="payments"
+                                     class="w-full mt-8 md:mt-6 hidden sm:block"/>
+                                <img class="w-full mt-4 sm:hidden" src="https://i.ibb.co/6XYbN7f/Rectangle-29.png"
+                                     alt="sitting place"/>
+                            </div>
                         </div>
-                        <div class="sm:flex items-center justify-between xl:gap-x-8 gap-x-6 md:mt-6 mt-4">
-                            <div class="relative w-full">
+                        <div class="lg:w-1/2 xl:ml-8 lg:ml-4 lg:mt-0 md:mt-6 mt-4 lg:flex flex-col justify-between">
+                            <div class="relative">
                                 <div>
-                                    <p class="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">12 April 2021</p>
-                                    <div class="absolute bottom-0 left-0 p-6">
-                                        <h2 class="text-xl font-semibold 5 text-white">The Decorated Ways</h2>
-                                        <p class="text-base leading-4 text-white mt-2">Dive into minimalism</p>
-                                        <a href="javascript:void(0)" class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
-                                            <p class="pr-2 text-sm font-medium leading-none">Read More</p>
-                                            <svg class="fill-stroke" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                    <p class="md:p-10 p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">
+                                        Investing</p>
+                                    <div class="absolute bottom-0 left-0 md:p-10 p-6">
+                                        <h2 class="text-xl font-semibold 5 text-white">Invest Your Funds</h2>
+                                        <p class="text-base leading-4 text-white mt-2">Let the money work for you</p>
+                                        <a href="/investing"
+                                           class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
+                                            <p class="pr-2 text-sm font-medium leading-none">Investing</p>
+                                            <svg class="fill-stroke" width="16" height="16" viewBox="0 0 16 16"
+                                                 fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor"
+                                                      stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                             </svg>
                                         </a>
                                     </div>
                                 </div>
-                                <img src="https://i.ibb.co/3yvZBpm/img-5.png" class="w-full" alt="chair" />
+                                <img src="{{asset('images/investing.jpg')}}" alt="investing"
+                                     class="w-full sm:block hidden"/>
+                                <img class="w-full sm:hidden" src="https://i.ibb.co/dpXStJk/Rectangle-29.png"
+                                     alt="sitting place"/>
                             </div>
-                            <div class="relative w-full sm:mt-0 mt-4">
-                                <div>
-                                    <p class="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">12 April 2021</p>
-                                    <div class="absolute bottom-0 left-0 p-6">
-                                        <h2 class="text-xl font-semibold 5 text-white">The Decorated Ways</h2>
-                                        <p class="text-base leading-4 text-white mt-2">Dive into minimalism</p>
-                                        <a href="javascript:void(0)" class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
-                                            <p class="pr-2 text-sm font-medium leading-none">Read More</p>
-                                            <svg class="fill-stroke" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </a>
+                            <div class="sm:flex items-center justify-between xl:gap-x-8 gap-x-6 md:mt-6 mt-4">
+                                <div class="relative w-full">
+                                    <div>
+                                        <p class="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">
+                                            Settings</p>
+                                        <div class="absolute bottom-0 left-0 p-6">
+                                            <h2 class="text-xl font-semibold 5 text-white">Account Settings</h2>
+                                            <p class="text-base leading-4 text-white mt-2">Control your account</p>
+                                            <a href="/user/profile"
+                                               class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline">
+                                                <p class="pr-2 text-sm font-medium leading-none">Settings</p>
+                                                <svg class="fill-stroke" width="16" height="16" viewBox="0 0 16 16"
+                                                     fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor"
+                                                          stroke-width="2" stroke-linecap="round"
+                                                          stroke-linejoin="round"/>
+                                                </svg>
+                                            </a>
+                                        </div>
                                     </div>
+                                    <img src="{{asset('images/settings.jpg')}}" class="w-full h-80" alt="settings"/>
                                 </div>
-                                <img src="https://i.ibb.co/gDdnJb5/img-6.png" class="w-full" alt="wall design" />
+                                <div class="relative w-full sm:mt-0 mt-4">
+                                    <div>
+                                        <p class="p-6 text-xs font-medium leading-3 text-white absolute top-0 right-0">
+                                            Logout</p>
+                                        <div class="absolute bottom-0 left-0 p-6">
+                                            <h2 class="text-xl font-semibold 5 text-white">Log Out</h2>
+                                            <p class="text-base leading-4 text-white mt-2">End banking session</p>
+                                            <form method="POST" action="http://127.0.0.1:8000/logout" x-data="">
+                                                <input type="hidden" name="_token"
+                                                       value="fXW60aULsNeWteVvmd8a9QqQDk2ghfrl8Zue9hM9">
+                                                <a class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
+                                                   href="http://127.0.0.1:8000/logout" @click.prevent="$root.submit();">Log
+                                                    Out
+                                                    <svg class="fill-stroke" width="16" height="16" viewBox="0 0 16 16"
+                                                         fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M5.75 12.5L10.25 8L5.75 3.5" stroke="currentColor"
+                                                              stroke-width="2" stroke-linecap="round"
+                                                              stroke-linejoin="round"/>
+                                                    </svg>
+                                                </a>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <img src="{{asset('images/logout.jpg')}}" class="w-full h-80" alt="wall design"/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </x-app-layout>
 </body>

@@ -27,7 +27,7 @@ class TransferController extends Controller
     public function transfer(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'amount' => 'required|min:1|max:255|numeric',
+            'amount' => 'required|numeric',
             'transfer_from' => new DifferentAccounts($request->input(['transfer_to'])),
         ]);
 

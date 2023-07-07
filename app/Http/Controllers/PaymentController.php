@@ -31,7 +31,7 @@ class PaymentController extends Controller
             'name' => 'required|min:2|max:255',
             'surname' => 'required|min:2|max:255',
             'receiver' => 'required|min:16|max:16|exists:accounts,account_number',
-            'amount' => 'required|min:1|max:255|numeric',
+            'amount' => 'required|numeric',
             'account' => new DifferentAccounts($request->input(['receiver'])),
         ]);
 

@@ -6,16 +6,18 @@ use App\Models\Account;
 use App\Models\Currency;
 use App\Models\Transaction;
 use App\Models\User;
+use App\Rules\DifferentAccounts;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Str;
+use Illuminate\View\View;
 
 class PaymentController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $user = User::find(Auth::user()->getAuthIdentifier());
         $accounts = $user->account;
@@ -30,6 +32,7 @@ class PaymentController extends Controller
             'surname' => 'required|min:2|max:255',
             'receiver' => 'required|min:16|max:16|exists:accounts,account_number',
             'amount' => 'required|min:1|max:255|numeric',
+            'account' => new DifferentAccounts($request->input(['receiver'])),
         ]);
 
         $senderAccount = Account::where('account_number', $request->input(['account']))->first();

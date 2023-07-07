@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Account;
 use App\Models\Currency;
 use App\Models\Transaction;
+use App\Rules\DifferentAccounts;
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -15,11 +16,6 @@ use Illuminate\View\View;
 
 class TransferController extends Controller
 {
-    public function all()
-    {
-
-    }
-
     public function show(): View
     {
         $userId = (int)Auth::user()->getAuthIdentifier();
@@ -32,6 +28,7 @@ class TransferController extends Controller
     {
         $validated = $request->validate([
             'amount' => 'required|min:1|max:255|numeric',
+            'transfer_from' => new DifferentAccounts($request->input(['transfer_to'])),
         ]);
 
         $user = Auth::user();
@@ -39,7 +36,6 @@ class TransferController extends Controller
         $fromAccount = $user->account()->findOrFail($request->input(['transfer_from']));
         $toAccount = $user->account()->findOrFail($request->input(['transfer_to']));
         $amount = $request->input(['amount']);
-
 
         $fromAccount->balance += -$amount;
         $toAccount->balance += Currency::exchange($fromAccount->currency, $toAccount->currency, $amount);

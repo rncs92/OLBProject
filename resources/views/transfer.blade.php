@@ -116,6 +116,9 @@
                                                 value="{{ $account->id }}"> {{ "Account number: $account->account_number" }} {{"Currency: $account->currency"}} {{"Balance: $account->balance"}} {{"Type: $account->type"}}</option>
                                     @endforeach
                                 </select>
+                                @error('transfer_from')
+                                <span class="text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                     </div>

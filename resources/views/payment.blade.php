@@ -197,7 +197,12 @@
                                                     </button>
                                                 </div>
                                             </div>
-                                            <div class="text-xs mt-2 text-gray-500 italic text-center">Make sure the details are entered correctly!
+                                            <div class="text-xs mt-2 text-gray-500 italic text-center">Make sure the
+                                                details are entered correctly!
+                                                <div>@error('account')
+                                                    <span class="text-red-500 text-lg">{{ $message }}</span>
+                                                    @enderror
+                                                </div>
                                             </div>
                                         </div>
                                     </div>

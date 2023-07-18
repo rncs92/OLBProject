@@ -1,46 +1,47 @@
 # Online Banking with Crypto Investment Platform
 
  <b>Installation guide:</b>
+ 1) Clone the Repository:
 
-    1) Clone the Repository:
+- In a terminal or command prompt, navigate to the directory where you want to store the project.
+- Run the following command to clone the repository:
 
-    - In a terminal or command prompt, navigate to the directory where you want to store the project.
-    - Run the following command to clone the repository:
+    <b>git clone https://github.com/your-username/your-repository.git</b>
+
+- This will create a local copy of repository on your PC.
+
+2) Install Dependencies:
+
+- Change the directory to the project folder using cd your-repository.
+- Run the following command to install the project dependencies using Composer:
+
+    <b>composer install</b>
     
-        <b>git clone https://github.com/your-username/your-repository.git</b>
+3) Environment Configuration:
 
-    - This will create a local copy of repository on your PC.
-    
-    2) Install Dependencies:
+- Create a copy of the .env.example file and rename it to .env.
+- Ppen the .env file and update the necessary configuration options such as the database connection details.
 
-    - Change the directory to the project folder using cd your-repository.
-    - Run the following command to install the project dependencies using Composer:
+4) Database Setup:
 
-        <b>composer install</b>
-        
-    3) Environment Configuration:
+- Create a new empty database for the project.
+- Update the .env file with the correct database credentials (database name, username, password).
 
-    - Create a copy of the .env.example file and rename it to .env.
-    - Ppen the .env file and update the necessary configuration options such as the database connection details.
-    
-    4) Database Setup:
+5) Run Migrations:
 
-    - Create a new empty database for the project.
-    - Update the .env file with the correct database credentials (database name, username, password).
-    
-    5) Run Migrations:
+- To set up the database schema, run the following command:
 
-    - To set up the database schema, run the following command:
+    <b>php artisan migrate</b>
 
-        <b>php artisan migrate</b>
+5) Serve the Application:
 
-    5) Serve the Application:
+- Finally, start the Laravel development server by running the following command:
 
-    - Finally, start the Laravel development server by running the following command:
+    <b>php artisan serve</b>
 
-        <b>php artisan serve</b>
+- This will start the server to access the application in your web browser at http://localhost:8000 (or another port specified in the output).  
 
-    - This will start the server to access the application in your web browser at http://localhost:8000 (or another port specified in the output).  
+
 
 <b>Preview:</b>
 ![Screenshot from 2023-07-18 15-40-35](https://github.com/rncs92/OLBProject/assets/123461096/9bd773ce-c8a9-46f5-a72c-55c4cc6cb030)

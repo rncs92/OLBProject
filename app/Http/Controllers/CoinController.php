@@ -31,7 +31,7 @@ class CoinController extends Controller
         }
 
         $difference = [];
-        for($i = 0; $i < count($boughtFor); $i++) {
+        for ($i = 0; $i < count($boughtFor); $i++) {
             $difference[] = number_format(($realTimeValues[$i] - $boughtFor[$i]) / $boughtFor[$i] * 100, 2);
         }
 
@@ -40,7 +40,7 @@ class CoinController extends Controller
 
         $investingTransactions = $user->investingTransactions;
 
-        return view('investing', compact(
+        return view('investing.investing', compact(
             'accounts',
             'portfolios',
             'totalSum',
@@ -55,7 +55,7 @@ class CoinController extends Controller
     {
         $coins = Coin::createCollection();
 
-        return view('crypto', compact('coins'));
+        return view('investing.crypto', compact('coins'));
     }
 
     public function showSingle(string $symbol): View
@@ -64,7 +64,7 @@ class CoinController extends Controller
         $userId = (int)Auth::user()->getAuthIdentifier();
         $accounts = Account::all()->where('user_id', $userId)->where('type', 'Investing');
 
-        return view('coin', compact('coin', 'accounts'));
+        return view('investing.coin', compact('coin', 'accounts'));
     }
 
     public function showSingleSell(string $symbol): View
@@ -80,7 +80,7 @@ class CoinController extends Controller
 
         $realTimeValue = number_format($coin->getPrice() * $portfolio->amount, 2);
 
-        return view('sell-coin', compact(
+        return view('investing.sell-coin', compact(
             'coin',
             'accounts',
             'portfolio',
@@ -102,10 +102,10 @@ class CoinController extends Controller
         }
 
         $differences = [];
-        for($i = 0; $i < count($boughtFor); $i++) {
+        for ($i = 0; $i < count($boughtFor); $i++) {
             $differences[] = number_format(($realTimeValues[$i] - $boughtFor[$i]) / $boughtFor[$i] * 100, 2);
         }
 
-        return view('sell', compact('portfolios', 'differences', 'realTimeValues'));
+        return view('investing.sell', compact('portfolios', 'differences', 'realTimeValues'));
     }
 }

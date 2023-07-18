@@ -222,11 +222,11 @@
                                         <div class="absolute bottom-0 left-0 p-6">
                                             <h2 class="text-xl font-semibold 5 text-white">Log Out</h2>
                                             <p class="text-base leading-4 text-white mt-2">End banking session</p>
-                                            <form method="POST" action="http://127.0.0.1:8000/logout" x-data="">
+                                            <form method="POST" action="http://127.0.0.1:8000/" x-data="">
                                                 <input type="hidden" name="_token"
                                                        value="fXW60aULsNeWteVvmd8a9QqQDk2ghfrl8Zue9hM9">
                                                 <a class="focus:outline-none focus:underline flex items-center mt-4 cursor-pointer text-white hover:text-gray-200 hover:underline"
-                                                   href="http://127.0.0.1:8000/logout" @click.prevent="$root.submit();">Log
+                                                   href="http://127.0.0.1:8000/" @click.prevent="$root.submit();">Log
                                                     Out
                                                     <svg class="fill-stroke" width="16" height="16" viewBox="0 0 16 16"
                                                          fill="none" xmlns="http://www.w3.org/2000/svg">

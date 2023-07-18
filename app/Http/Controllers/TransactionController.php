@@ -13,6 +13,6 @@ class TransactionController extends Controller
         $user = User::find(Auth::user()->getAuthIdentifier());
         $transactions = $user->transactions;
 
-        return view('transactions', compact('transactions'));
+        return view('payments.transactions', compact('transactions'));
     }
 }

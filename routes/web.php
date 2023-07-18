@@ -45,4 +45,5 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', [Controller::class, 'index'])->name('dashboard');
+    Route::post('/dashboard', [Controller::class, 'index'])->name('dashboard');
 });

@@ -19,7 +19,7 @@ class DepositController extends Controller
         $userId = (int)Auth::user()->getAuthIdentifier();
         $accounts = Account::all()->where('user_id', $userId);
 
-        return view('deposit', compact('accounts'));
+        return view('payments.deposit', compact('accounts'));
     }
 
     public function deposit(Request $request): RedirectResponse
@@ -44,7 +44,7 @@ class DepositController extends Controller
             'amount' => $amount,
             'currency' => $userAccount->currency,
             'when' => Carbon::now(),
-            'message'=> 'Deposit'
+            'message' => 'Deposit'
         ]);
         $userAccount->save();
         $userAccount->transaction()->save($transaction);

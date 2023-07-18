@@ -22,7 +22,7 @@ class PaymentController extends Controller
         $user = User::find(Auth::user()->getAuthIdentifier());
         $accounts = $user->account;
 
-        return view('payment', compact('accounts'));
+        return view('payments.payment', compact('accounts'));
     }
 
     public function make(Request $request): RedirectResponse
@@ -75,30 +75,5 @@ class PaymentController extends Controller
         $toTransaction->save();
 
         return Redirect::to('/accounts');
-    }
-
-    public function store(Request $request)
-    {
-        //
-    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    public function destroy($id)
-    {
-        //
     }
 }

@@ -21,7 +21,7 @@ class TransferController extends Controller
         $userId = (int)Auth::user()->getAuthIdentifier();
         $accounts = Account::all()->where('user_id', $userId);
 
-        return view('transfer', compact('accounts'));
+        return view('payments.transfer', compact('accounts'));
     }
 
     public function transfer(Request $request): RedirectResponse

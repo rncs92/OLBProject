@@ -36,27 +36,12 @@ class AccountController extends Controller
         return Redirect::to('accounts');
     }
 
-    public function store(Request $request)
-    {
-        //
-    }
-
     public function show()
     {
         $userId = (int)Auth::user()->getAuthIdentifier();
         $accounts = Account::all()->where('user_id', $userId);
 
-        return view('accounts', compact('accounts'));
-    }
-
-    public function edit($id)
-    {
-        //
-    }
-
-    public function update(Request $request, $id)
-    {
-        //
+        return view('accounts.accounts', compact('accounts'));
     }
 
     public function destroy(Account $account): RedirectResponse

@@ -57,7 +57,7 @@ class PortfolioController extends Controller
             'user_id' => $userId,
             'account_number' => $account->account_number,
             'transaction_id' => $transactionId,
-            'bought_for'=> $request['amount'],
+            'bought_for' => $request['amount'],
             'currency' => $account->currency,
             'coin_symbol' => $coin->getSymbol(),
             'coin_name' => $coin->getName(),
@@ -95,7 +95,7 @@ class PortfolioController extends Controller
             'user_id' => $userId,
             'account_number' => $account->account_number,
             'transaction_id' => $transactionId,
-            'sold_for'=> $soldFor,
+            'sold_for' => $soldFor,
             'currency' => $account->currency,
             'coin_symbol' => $portfolio->coin,
             'coin_name' => $portfolio->coin_name,
@@ -110,5 +110,4 @@ class PortfolioController extends Controller
 
         return Redirect::to('/investing');
     }
-
 }

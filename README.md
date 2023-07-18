@@ -20,7 +20,7 @@
 3) Environment Configuration:
 
     - Create a copy of the .env.example file and rename it to .env.
-    - Ppen the .env file and update the necessary configuration options such as the database connection details.
+    - Open the .env file and update the necessary configuration options such as the database connection details.
 
 4) Database Setup:
 
